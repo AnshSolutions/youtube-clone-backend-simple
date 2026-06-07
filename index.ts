@@ -4,9 +4,9 @@ import {z} from 'zod'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import {prisma} from './db'//talk to prisma
-
+import cors from "cors";
 const app= express();
-
+app.use(cors());
 app.use(express.json());
 
 //validate the schema 
@@ -194,7 +194,7 @@ app.get('/videos/:id', async (req:express.Request, res:express.Response) => {
     res.json(video);
 });
 app.listen(3001, () => {
-    console.log('Server is running on port 3000');
+    console.log('Server is running on port 3001');
 });
 // what end points do we need?
 //signup,sign(authorized)
